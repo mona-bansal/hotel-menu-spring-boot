@@ -21,7 +21,7 @@ public class MenuServiceTest {
     private MenuService menuService;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         menuService = new MenuService(menuRepository);
     }
 
