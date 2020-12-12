@@ -1,5 +1,7 @@
 package com.vapasi.hotelmenu.response;
 
+import java.util.Objects;
+
 public class MenuResponse {
     private Integer id;
     private String name;
@@ -14,10 +16,6 @@ public class MenuResponse {
     public MenuResponse() {
     }
 
-    public Integer getId() {
-        return id;
-    }
-
     public String getName() {
         return name;
     }
@@ -26,4 +24,17 @@ public class MenuResponse {
         return price;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MenuResponse that = (MenuResponse) o;
+        return Double.compare(that.price, price) == 0 &&
+                Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price);
+    }
 }
